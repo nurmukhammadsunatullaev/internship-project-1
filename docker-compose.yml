@@ -3,13 +3,30 @@ services:
     build: main-app
     ports:
       - 8080:8080
+    depends_on:
+      - localRabbitMQ
 
   notification-app:
     build: notification-app
     ports:
       - 8081:8081
+    depends_on:
+      - main-app
 
   payment-app:
     build: payment-app
     ports:
       - 8082:8082
+
+  localRabbitMQ:
+    image: rabbitmq:3.9.8-management-alpine
+    container_name: uzum-intern-rabbit
+    environment:
+      RABBITMQ_DEFAULT_USER: uzum-user
+      RABBITMQ_DEFAULT_PASS: uzum-password
+    ports:
+      - 5672:5672
+      - 15672:15672
+    expose:
+      - 5672
+      - 15672
