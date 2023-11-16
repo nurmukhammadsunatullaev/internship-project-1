@@ -7,8 +7,7 @@ import org.springframework.stereotype.Component;
 @Component
 @EnableRabbit
 public class RabbitMQConsumer {
-
-    @RabbitListener(queues = Parameters.QUEUE)
+    @RabbitListener(queues = "uzum-queue1")
     public void processMyQueue(String message) {
         System.out.println(message);
     }
