@@ -15,3 +15,7 @@ env:
   queue: uzum-queue1
   exchange: uzum-exchange
   routingkey: uzum-rk
+  tg:
+    token:
+    chat-id:
+    botname:

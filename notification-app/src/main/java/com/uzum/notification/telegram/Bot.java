@@ -7,12 +7,21 @@ import org.telegram.telegrambots.bots.TelegramLongPollingBot;
 
 public class Bot extends TelegramLongPollingBot {
 
-    private final String BOT_TOKEN = Parameters.TOKEN;
-    private final String BOT_NAME = Parameters.USERNAME;
+    private final String BOT_TOKEN;
+
+    private final String BOT_NAME;
+
+    private final String CHAT_ID;
+
+    public Bot(String botToken, String botName, String chatId) {
+        BOT_TOKEN = botToken;
+        BOT_NAME = botName;
+        CHAT_ID = chatId;
+    }
 
     public void sendToTelegram(String message) {
         SendMessage sendMessage = new SendMessage();
-        sendMessage.setChatId(Parameters.CHAT_ID);
+        sendMessage.setChatId(CHAT_ID);
         sendMessage.setText(message);
         try {
             execute(sendMessage);
