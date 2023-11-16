@@ -8,8 +8,10 @@ import org.springframework.stereotype.Component;
 @Component
 @EnableRabbit
 public class RabbitMQConsumer {
+
     private final Bot bot = new Bot();
-    @RabbitListener(queues = Parameters.QUEUE)
+
+    @RabbitListener(queues = "uzum-queue1")
     public void processMyQueue(String message) {
         System.out.println(message);
         bot.sendToTelegram(message);
