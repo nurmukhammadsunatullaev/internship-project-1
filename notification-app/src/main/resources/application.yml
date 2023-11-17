@@ -6,3 +6,16 @@ server:
 spring:
   application:
     name: notification-app
+
+env:
+  port: 5672
+  host: uzum-intern-rabbit
+  username: uzum-user
+  password: uzum-password
+  queue: uzum-queue1
+  exchange: uzum-exchange
+  routingkey: uzum-rk
+  tg:
+    token:
+    chat-id:
+    botname:
