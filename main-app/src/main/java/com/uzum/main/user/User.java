@@ -24,7 +24,6 @@ public class User implements Serializable {
     @Column(unique = true)
     private String email;
     @Enumerated(EnumType.STRING)
-    @EqualsAndHashCode.Include
     private Status status;
     @Column(unique = true)
     private String username;
